@@ -45,7 +45,7 @@ cursorImage.classList.add("spinning");
 cursorCircle.appendChild(cursorImage);
 document.body.appendChild(cursorCircle);
 
-cursorCircle.addEventListener("click", (e) => {
+cursorCircle.addEventListener("click", (_e) => {
     cursorImage.classList.toggle("spinning");
 });
 
