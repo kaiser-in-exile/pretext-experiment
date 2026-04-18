@@ -155,3 +155,13 @@ document.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 });
+
+document.addEventListener("keyup", (e) => {
+    if (e.key.toLowerCase() === "g") {
+        window.open("https://github.com/kaiser-in-exile/pretext-experiment", "_blank");
+    }
+
+    if (e.key.toLowerCase() === "p") {
+        window.open("https://github.com/chenglou/pretext", "_blank");
+    }
+});

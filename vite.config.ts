@@ -1,3 +1,1 @@
-export default {
-    assets: "dist",
-};
+export default {};
