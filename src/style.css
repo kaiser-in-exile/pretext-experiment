@@ -1,13 +1,64 @@
+:root {
+    --parchment-bg: #f2e8c9;
+    --ink: #2c1810;
+    --ink-faded: #5c3d2e;
+    --shadow: #8b6914;
+}
+
+@font-face {
+    font-family: "Medieval Sharp";
+    src: url("/fonts/MedievalSharp-Regular.ttf") format("truetype");
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cursor {
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    mask-image: radial-gradient(circle, black 40%, transparent 70%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        animation: spin 5s infinite linear;
+        animation-play-state: paused;
+        object-fit: contain;
+        margin: auto;
+        width: 60%;
+        height: 60%;
+    }
+}
+
+.spinning {
+    animation-play-state: running !important;
+}
+
+body {
+    background-color: var(--parchment-bg);
+    font-family: "Medieval Sharp", cursive, serif;
+}
+
 .text-container {
-  overflow: hidden;
+    border-radius: 4px;
+    color: var(--ink);
+    padding: 8px;
+
+    font-family: "Medieval Sharp", cursive, serif;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .line-container {
-  font-family: sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-
-  span {
-    white-space: nowrap;
-  }
+    span {
+        white-space: nowrap;
+    }
 }
