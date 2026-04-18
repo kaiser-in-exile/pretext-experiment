@@ -48,11 +48,23 @@ document.body.appendChild(cursorCircle);
 cursorCircle.addEventListener("click", (_e) => {
     cursorImage.classList.toggle("spinning");
 });
+// #endregion
 
+// #region utility functions
+function clamp(value: number, min: number, max: number) {
+    return Math.min(Math.max(value, min), max);
+}
 // #endregion
 
 await document.fonts.ready;
 
+// given a center coordiante and the radius of a circle
+// and the y position of the line, and the total container width
+// this function computes the available widths on the left and right side of the circle
+// since english, is a LTR language, the right portion is embedded with extra metadata, eg: margins to allow for correct positioning.
+// this can also be generalised I think.
+// TODO: can we generalise to any shape,
+// explore SDFs
 function computeAvailableWidthAroundCircle(
     centerX: number,
     centerY: number,
@@ -67,8 +79,8 @@ function computeAvailableWidthAroundCircle(
         const halfChordWidthAtY = Math.sqrt(
             radius * radius - verticalDistanceBetweenCircleCenterAndLine * verticalDistanceBetweenCircleCenterAndLine,
         );
-        const leftWidth = Math.min(Math.max(centerX - halfChordWidthAtY, 0), containerWidth);
-        const rightWidth = Math.min(Math.max(containerWidth - (centerX + halfChordWidthAtY), 0), containerWidth);
+        const leftWidth = clamp(centerX - halfChordWidthAtY, 0, containerWidth);
+        const rightWidth = clamp(containerWidth - (centerX + halfChordWidthAtY), 0, containerWidth);
         return {
             leftWidth,
             rightWidth,
