@@ -1,0 +1,13 @@
+.text-container {
+  overflow: hidden;
+}
+
+.line-container {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+
+  span {
+    white-space: nowrap;
+  }
+}
